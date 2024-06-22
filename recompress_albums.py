@@ -12,10 +12,16 @@ class FileUploaderApp:
         self.root.title("Folder Uploader")
         self.root.geometry("600x400")
 
-        self.upload_button = ttk.Button(root, text="Upload Folder", command=self.upload_folder)
+        self.photo_upload = tk.PhotoImage(file='C:/Users/Pero/Desktop/Python-projekti/Recompress Photo Albums/Icons/upload.png')
+        self.photo_upload_resized = self.photo_upload.subsample(12,12)
+
+        self.photo_processing = tk.PhotoImage(file='C:/Users/Pero/Desktop/Python-projekti/Recompress Photo Albums/Icons/engineering.png')
+        self.photo_processing_resized = self.photo_processing.subsample(12,12)
+
+        self.upload_button = ttk.Button(root, text="Upload Folder", command=self.upload_folder, image=self.photo_upload_resized)
         self.upload_button.pack(pady=20)
 
-        self.process_button = ttk.Button(root, text="Process Folder", command=self.process_folder)
+        self.process_button = ttk.Button(root, text="Process Folder", command=self.process_folder, image=self.photo_processing_resized)
         self.process_button.pack(pady=10)
 
         self.clear_button = ttk.Button(root, text="Clear Text", command=self.clear_text)
